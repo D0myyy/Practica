@@ -1,0 +1,61 @@
+Informațiile despre jucări (denumire, pret, rantitate, categorie (pentru copii mici, pentru baleti, pentru fete), codul producătorulull sunt continute intr-un fişier text Toys.txt. Fiecare tinie din fisierul de test corespunde informațiilor despre o jucărie
+
+Informațiile despre producători (codul producătorului, denumire, tara) sunt continute intr-un fişier text Manufacturer.txt Fiecare linie din fişierul de test corespunde informațiilor despre un producător
+
+50 se elaborere un program (modular) care, folosind meniuri şi subprograme, să realizeze, ia solicitarea
+
+utilizatorului, următoarele prescripţii:
+
+1. Afişarea pe ecran a informațiilor despre toate jucăriile
+
+3. Adăugarea informațiilor despre o jucărie nouă.
+
+2. Afişarea pe ecran a informațiilor despre toți producătorii.
+
+4 Adaugarea informațiilor despre un nou producător.
+
+5. Stergerea informațiilor despre o jucărie, al cărei nume a fost introdus de la tastatură
+
+6. Stergerea informatiilor despre un producător, al cărui nume a fost introdus de la tastatură.
+
+7. Editarea Informațiilor despre o jucărie, al cărei nume a fost introdus de la tastatură,
+
+8. Editarea informațiilor despre un producător, al cărui nume a fost introdus de la tastatură.
+
+9. Crearea unui fişier text Total.txt, care să conțină denumirile tuturor producătorilor şi numărul de tipuri de jucării fabricate de fiecare.
+
+10. Afişarea pe ecran în ordine alfabetică a tuturor denumirilor jucăriilor destinate celor mici.
+
+11. Afişarea pe ecran a informațiilor despre jucăria cea mai scumpă și cea mai ieftină.
+
+12. Afişarea pe ecran a prețului mediu al tuturor jucăriilor din categoria specificată.
+
+Realizaţi următoarele sarcini în aplicația MS Excel
+
+1. Creaţi fişierul ToyMarket. Importați datele din fişierele text Toys.txt şi Manufacturer.txt în foi separate cu
+
+denumirile corespunzătoare.
+
+2. Adăugați titlu pentru fiecare tabel şi etichetați corespunzător coloanele.
+
+3. Formatați tabelele: adăugați margini, culoare, märime, tip font etc.
+
+4. Valorile codului producătorului şi categoria în tabelul Jucării şi ţara în tabelul Producători trebuie selectate dintr-o listă derulantă.
+
+5. în tabelul Jucării, adăugați o coloană suplimentară care să conțină fotografia jucăriei. Pentru titlul tabelului, adăugați un comentariu care să conțină sigla magazinului de jucării.
+
+6. În tabelul Producători, adăugați o nouă coloană care să conțină numărul de jucării produse și o nouă linie care să conțină totalul tuturor jucăriilor.
+
+7. Calculați numărul de tipuri de jucării şi preţul mediu pentru fiecare țară. Salvați calculele corespunzătoare în foaia Statistici.
+
+8. Reprezentaţi grafic numărul de jucării pentru mici copii, pentru băieți, pentru fete.
+
+9. Afişați informațiile despre toate jucăriile producătorului, a cărui nume este ales din lista derulantă (ComboBox)
+
+10. Afişaţi fotografia jucăriei, al cărei nume este ales din lista derulantă.
+
+MS Word HMS Power Point
+
+Creați un raport la practică în MS Word conform cerințelor predefinite.
+
+Creați o prezentare în MS POWER POINT, care va conține o relatare succintă despre proiectele realizate.

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1747041262 source:d:\dtilipet p-2412\practica\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+
