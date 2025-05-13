@@ -25,6 +25,5 @@ Bagheta 25 2800 fete 24
 Tambur 130 700 copii_mici 25
 Tractor 170 400 baieti 26
 Lego 300 1000 copii_mici 27
-Drone 500 150 baieti 28
 PapusaBarbie 250 600 fete 29
 Tobita 90 1300 copii_mici 30

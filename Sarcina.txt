@@ -8,9 +8,9 @@ utilizatorului, următoarele prescripţii:
 
 1. Afişarea pe ecran a informațiilor despre toate jucăriile
 
-3. Adăugarea informațiilor despre o jucărie nouă.
-
 2. Afişarea pe ecran a informațiilor despre toți producătorii.
+
+3. Adăugarea informațiilor despre o jucărie nouă.
 
 4 Adaugarea informațiilor despre un nou producător.
 
