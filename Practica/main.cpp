@@ -3,10 +3,21 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
+#include <cctype>
+#include <algorithm>
+#include <vector>
+#include <map>
 
 using namespace std;
 
 int minID = 30;
+
+bool compararePrimaLitera(const string& a, const string& b) {
+    string lowerA = a, lowerB = b;
+    transform(lowerA.begin(), lowerA.end(), lowerA.begin(), ::tolower);
+    transform(lowerB.begin(), lowerB.end(), lowerB.begin(), ::tolower);
+    return lowerA < lowerB;
+}
 
 void Sarcina1(){
     ifstream Toys("Toys.txt");
@@ -16,7 +27,7 @@ void Sarcina1(){
         string name, category;
         int price, quantity, ID;
         iss >> name >> price >> quantity >> category >> ID;
-        //cout << name << " " << price << " " << quantity << " " << category << " " << ID << endl;
+
         cout << left << setw(20) << name
              << setw(10) << price
              << setw(10) << quantity
@@ -24,6 +35,7 @@ void Sarcina1(){
              << setw(5) << ID << endl;
         }
         cout << endl;
+        Toys.close();
 }
 
 void Sarcina2(){
@@ -40,6 +52,7 @@ void Sarcina2(){
              << setw(15) << country << endl;
     }
     cout << endl;
+    Manufacturer.close();
 }
 
 void Sarcina3(){
@@ -64,6 +77,7 @@ void Sarcina3(){
     }
     // Adauga informatia la fisier
     Toys << name << " " << price << " " << quantity << " " << category;
+    Toys.close();
 }
 
 void Sarcina4(){
@@ -79,24 +93,30 @@ void Sarcina4(){
     cin >> country;
     // Adauga informatia la fisier
     Manufacturer << minID << " " << name << " " << country;
+    Manufacturer.close();
 }
 
-int Sarcina5(){
+void Sarcina5(){
     ifstream Toys("Toys.txt");
     ofstream temp("temp.txt");
 
-    if (!Toys || !temp) {
-        cout << "Errouarie" << endl;
-        return 1;
-    }
-
     string target;
-    cout << "Introdu numele jucariei pe care o doresti stearsa: ";
+    cout << "Introdu numele jucariei pe care doresti sa o stergi: ";
     cin >> target;
 
     string line;
     while (getline(Toys, line)) {
-        if (line.find(target) != 0) {
+        istringstream iss(line);
+        string name;
+        iss >> name;
+
+        for (char& c : name) {
+            c = tolower(c);
+        }
+        for (char& c : target) {
+            c = tolower(c);
+        }
+        if (name != target) {
             temp << line << endl;
         }
     }
@@ -104,37 +124,265 @@ int Sarcina5(){
     Toys.close();
     temp.close();
 
-    // Schimbam cu locurile
     remove("Toys.txt");
     rename("temp.txt", "Toys.txt");
 }
 
 void Sarcina6(){
+    ifstream Manufacturer("Manufacturer.txt");
+    ofstream temp("temp2.txt");
 
+    string target;
+    cout << "Introdu numele producatorului pe care doresti sa il stergi: ";
+    cin >> target;
+
+    string line;
+    while (getline(Manufacturer, line)) {
+        istringstream iss(line);
+        string name;
+        int ID;
+        iss >> ID >> name;
+
+        for (char& c : name) {
+            c = tolower(c);
+        }
+        for (char& c : target) {
+            c = tolower(c);
+        }
+        if (name != target) {
+            temp << line << endl;
+        }
+    }
+
+    Manufacturer.close();
+    temp.close();
+
+    remove("Manufacturer.txt");
+    rename("temp2.txt", "Manufacturer.txt");
 }
 
 void Sarcina7(){
+    ifstream Toys("Toys.txt");
+    ofstream temp("temp3.txt");
 
+    string target;
+    cout << "Introdu numele jucariei pe care doresti sa o editezi: ";
+    cin >> target;
+
+    string line;
+    while (getline(Toys, line)) {
+        istringstream iss(line);
+        string name;
+        iss >> name;
+
+        for (char& c : name) {
+            c = tolower(c);
+        }
+        for (char& c : target) {
+            c = tolower(c);
+        }
+        if (name != target) {
+            temp << line << endl;
+        } else {
+            Sarcina3();
+        }
+    }
+
+    Toys.close();
+    temp.close();
+
+    remove("Toys.txt");
+    rename("temp3.txt", "Toys.txt");
 }
 
 void Sarcina8(){
+    ifstream Manufacturer("Manufacturer.txt");
+    ofstream temp("temp4.txt");
 
+    string target;
+    cout << "Introdu numele jucariei pe care doresti sa o editezi: ";
+    cin >> target;
+
+    string line;
+    while (getline(Manufacturer, line)) {
+        istringstream iss(line);
+        int ID;
+        string name;
+        iss >> ID >> name;
+
+        for (char& c : name) {
+            c = tolower(c);
+        }
+        for (char& c : target) {
+            c = tolower(c);
+        }
+        if (name != target) {
+            temp << line << endl;
+        } else {
+            Sarcina4();
+        }
+    }
+
+    Manufacturer.close();
+    temp.close();
+
+    remove("Manufacturer.txt");
+    rename("temp4.txt", "Manufacturer.txt");
 }
 
-void Sarcina9(){
+int Sarcina9(){
+    map<int, string> producatori; // ID  Nume
+    map<int, int> jucariiPerProducator; // ID  nr jucarii
 
+    ifstream fileProd("Manufacturer.txt");
+
+    string line;
+    while (getline(fileProd, line)) {
+        istringstream iss(line);
+        int id;
+        string nume, tara;
+        iss >> id >> nume >> tara;
+        producatori[id] = nume;
+        jucariiPerProducator[id] = 0;
+    }
+    fileProd.close();
+
+
+    ifstream fileToys("Toys.txt");
+    if (!fileToys) {
+        cerr << "Eroare la deschiderea Toys.txt\n";
+        return 1;
+    }
+
+    while (getline(fileToys, line)) {
+        istringstream iss(line);
+        string name, category;
+        int price, quantity, idProd;
+        iss >> name >> price >> quantity >> category >> idProd;
+        jucariiPerProducator[idProd]++;
+    }
+    fileToys.close();
+
+    cout << "Producatori si numarul de tipuri de jucarii fabricate:\n\n";
+    for (auto& pair : producatori) {
+        int id = pair.first;
+        string nume = pair.second;
+        cout << "- " << nume << ": " << jucariiPerProducator[id] << " tipuri de jucarii\n";
+    }
+    cout << endl;
 }
 
 void Sarcina10(){
+    ifstream Toys("Toys.txt");
+    string lineToys;
 
+    vector<string> NumeleToys;
+
+    while(getline(Toys, lineToys)){
+        istringstream iss(lineToys);
+        string name, category;
+        int price, quantity, ID;
+        iss >> name >> price >> quantity >> category >> ID;
+
+        NumeleToys.push_back(name);
+        }
+
+        sort(NumeleToys.begin(), NumeleToys.end(), compararePrimaLitera);
+        for (const string& toy : NumeleToys) {
+        cout << toy << endl;
+        }
+        cout << endl;
+        Toys.close();
 }
 
 void Sarcina11(){
+    ifstream file("Toys.txt");
 
+    string line;
+    string maxName, minName, maxCategory, minCategory;
+    int maxPrice = -1, minPrice = 199999999, minQuantity, minID, maxQuantity, maxID;
+
+    while (getline(file, line)) {
+        istringstream iss(line);
+        string name, category;
+        int price, quantity, ID;
+        iss >> name >> price >> quantity >> category >> ID;
+
+        if (price > maxPrice) {
+            maxPrice = price;
+            maxName = name;
+            maxQuantity = quantity;
+            maxCategory = category;
+            maxID = ID;
+        }
+
+        if (price < minPrice) {
+            minPrice = price;
+            minName = name;
+            minQuantity = quantity;
+            minCategory = category;
+            minID = ID;
+        }
+    }
+
+    file.close();
+
+    cout << left << setw(25) << "Cea mai scumpa jucarie: ";
+    cout << left << setw(20) << maxName
+             << setw(10) << maxPrice
+             << setw(10) << maxQuantity
+             << setw(15) << maxCategory
+             << setw(5) << maxID << endl;
+    cout << "Cea mai ieftina jucarie: ";
+    cout << left << setw(20) << minName
+             << setw(10) << minPrice
+             << setw(10) << minQuantity
+             << setw(15) << minCategory
+             << setw(5) << minID << endl;
 }
 
 void Sarcina12(){
+    ifstream Toys("Toys.txt");
 
+    string line;
+    double totalPrice = 0;
+    double toyCount = 0;
+
+    string target;
+    cout << "Introdu categoria (fete/baieti/copii_mici) al carui mediu vrei sa il iei: ";
+    cin >> target;
+    while(target != "fete" && target != "baieti" && target != "copii_mici"){
+        cout << "Alege o categorie valida!" << endl;
+        cout << "Introdu categoria (fete/baieti/copii_mici) al carui mediu vrei sa il iei: ";
+        cin >> target;
+    }
+
+    while (getline(Toys, line)) {
+        istringstream iss(line);
+        string name, category;
+        int price, quantity, ID;
+        iss >> name >> price >> quantity >> category >> ID;
+
+        for (char& c : category) {
+            c = tolower(c);
+        }
+        for (char& c : target) {
+            c = tolower(c);
+        }
+        if (category == target) {
+            totalPrice += price;
+            toyCount++;
+        }
+    }
+
+    Toys.close();
+
+    if (toyCount > 0) {
+        double average = totalPrice / toyCount;
+        cout << "Mediul jucariilor din categoria '" << target << "' este: " << average << endl << endl;
+    } else {
+        cout << "Nu sunt jucarii!";
+    }
 }
 
 int main(){
@@ -144,7 +392,7 @@ int main(){
     ifstream Manufacturer("Manufacturer.txt");
     string lineManufacturer;
     if(!Toys || !Manufacturer){
-        cout << "Errare" << endl;
+        cout << "Eruare" << endl;
         return 1;
     }
 
@@ -169,6 +417,8 @@ int main(){
     int input;
     cin >> input;
     cout << endl;
+    Toys.close();
+    Manufacturer.close();
 
     // Citirea inputului si oferirea informatiei declarand functia
     switch(input){
@@ -208,9 +458,11 @@ int main(){
         case 12:
             Sarcina12();
             break;
+        default:
+            cout << "Alege o optiune valida!" << endl;
+            main();
+            break;
     }
-    Toys.close();
-    Manufacturer.close();
     main();
     return 0;
 }
