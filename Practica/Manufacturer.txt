@@ -19,6 +19,7 @@
 19 Kandia Romania
 20 Twix SUA
 21 Mentos Olanda
+22 Mamba Germania
 23 Skittles SUA
 24 Bounty SUA
 25 Alpenliebe Italia
@@ -26,4 +27,4 @@
 27 Haribo Germania
 28 Trolli Germania
 29 Goplana Polonia
-31 Rosheen Moldova
+30 Roshen Ucraina
