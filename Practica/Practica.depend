@@ -13,3 +13,13 @@
 	<string>
 	<iomanip>
 
+1747216934 source:d:\practica\practica\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<iomanip>
+	<cctype>
+	<algorithm>
+	<vector>
+
