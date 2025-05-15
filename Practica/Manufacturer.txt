@@ -26,4 +26,4 @@
 27 Haribo Germania
 28 Trolli Germania
 29 Goplana Polonia
-31 Rosheen Moldova
+30 Rosheen Moldova

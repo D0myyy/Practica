@@ -10,7 +10,27 @@
 
 using namespace std;
 
-int minID = 30;
+int maxIDM = -1;
+
+int maxIDManufacturer(){
+    ifstream file("Manufacturer.txt");
+
+    string line;
+
+    while (getline(file, line)) {
+        istringstream iss(line);
+        int ID;
+        iss >> ID;
+
+        if (ID > maxIDM) {
+            maxIDM = ID;
+        }
+    }
+
+    file.close();
+    maxIDM++;
+    return maxIDM;
+}
 
 bool compararePrimaLitera(const string& a, const string& b) {
     string lowerA = a, lowerB = b;
@@ -75,8 +95,10 @@ void Sarcina3(){
         cout << "Introdu categoria (fete/baieti/copii_mici) jucariei: ";
         cin >> category;
     }
+    cout << "Introdu codul producatorului (0-" << maxIDManufacturer() << "): ";
+    cin >> ID;
     // Adauga informatia la fisier
-    Toys << name << " " << price << " " << quantity << " " << category;
+    Toys << name << " " << price << " " << quantity << " " << category << " " << ID;
     Toys.close();
 }
 
@@ -84,7 +106,6 @@ void Sarcina4(){
     ofstream Manufacturer("Manufacturer.txt", ios::app);
     // Creare variabile
     string name, country;
-    minID++;
 
     // Introducerea de la tastatura a detaliilor despre jucaria noua
     cout << "Introdu numele producatorului: ";
@@ -92,7 +113,7 @@ void Sarcina4(){
     cout << "Introdu tara producatorului: ";
     cin >> country;
     // Adauga informatia la fisier
-    Manufacturer << minID << " " << name << " " << country;
+    Manufacturer << maxIDManufacturer() << " " << name << " " << country;
     Manufacturer.close();
 }
 
@@ -267,7 +288,7 @@ int Sarcina9(){
     for (auto& pair : producatori) {
         int id = pair.first;
         string nume = pair.second;
-        cout << "- " << nume << ": " << jucariiPerProducator[id] << " tipuri de jucarii\n";
+        cout << " " << nume << ": " << jucariiPerProducator[id] << " tipuri de jucarii\n";
     }
     cout << endl;
 }

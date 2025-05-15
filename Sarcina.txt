@@ -1,10 +1,13 @@
 Informațiile despre jucări (denumire, pret, rantitate, categorie (pentru copii mici, pentru baleti, pentru fete), codul producătorulull sunt continute intr-un fişier text Toys.txt. Fiecare tinie din fisierul de test corespunde informațiilor despre o jucărie
 
+
 Informațiile despre producători (codul producătorului, denumire, tara) sunt continute intr-un fişier text Manufacturer.txt Fiecare linie din fişierul de test corespunde informațiilor despre un producător
 
-50 se elaborere un program (modular) care, folosind meniuri şi subprograme, să realizeze, ia solicitarea
+
+Sa se elaborere un program (modular) care, folosind meniuri şi subprograme, să realizeze, ia solicitarea
 
 utilizatorului, următoarele prescripţii:
+
 
 1. Afişarea pe ecran a informațiilor despre toate jucăriile
 
@@ -30,7 +33,11 @@ utilizatorului, următoarele prescripţii:
 
 12. Afişarea pe ecran a prețului mediu al tuturor jucăriilor din categoria specificată.
 
-Realizaţi următoarele sarcini în aplicația MS Excel
+
+
+
+Realizaţi următoarele sarcini în aplicația MS Excel:
+
 
 1. Creaţi fişierul ToyMarket. Importați datele din fişierele text Toys.txt şi Manufacturer.txt în foi separate cu
 
@@ -54,7 +61,9 @@ denumirile corespunzătoare.
 
 10. Afişaţi fotografia jucăriei, al cărei nume este ales din lista derulantă.
 
-MS Word HMS Power Point
+
+
+MS Word MS Power Point:
 
 Creați un raport la practică în MS Word conform cerințelor predefinite.
 

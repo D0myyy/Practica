@@ -23,3 +23,14 @@
 	<algorithm>
 	<vector>
 
+1747297549 source:c:\users\205\desktop\practica\practica\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<iomanip>
+	<cctype>
+	<algorithm>
+	<vector>
+	<map>
+
