@@ -13,7 +13,7 @@
 	<string>
 	<iomanip>
 
-1747216934 source:d:\practica\practica\main.cpp
+1747388154 source:d:\practica\practica\main.cpp
 	<iostream>
 	<fstream>
 	<sstream>
@@ -22,6 +22,7 @@
 	<cctype>
 	<algorithm>
 	<vector>
+	<map>
 
 1747297549 source:c:\users\205\desktop\practica\practica\main.cpp
 	<iostream>

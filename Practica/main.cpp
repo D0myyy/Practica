@@ -82,7 +82,7 @@ void Sarcina3(){
     int price, quantity, ID;
 
     // Introducerea de la tastatura a detaliilor despre jucaria noua
-    cout << "Introdu numele jucariei: ";
+    cout << "Introdu numele jucariei(fara spatiu): ";
     cin >> name;
     cout << "Introdu pretul jucariei: ";
     cin >> price;
@@ -95,7 +95,7 @@ void Sarcina3(){
         cout << "Introdu categoria (fete/baieti/copii_mici) jucariei: ";
         cin >> category;
     }
-    cout << "Introdu codul producatorului (0-" << maxIDManufacturer() << "): ";
+    cout << "Introdu codul producatorului (1-" << maxIDManufacturer() << "): ";
     cin >> ID;
     // Adauga informatia la fisier
     Toys << name << " " << price << " " << quantity << " " << category << " " << ID;
@@ -108,7 +108,7 @@ void Sarcina4(){
     string name, country;
 
     // Introducerea de la tastatura a detaliilor despre jucaria noua
-    cout << "Introdu numele producatorului: ";
+    cout << "Introdu numele producatorului(fara spatiu): ";
     cin >> name;
     cout << "Introdu tara producatorului: ";
     cin >> country;
@@ -256,6 +256,10 @@ int Sarcina9(){
     map<int, int> jucariiPerProducator; // ID  nr jucarii
 
     ifstream fileProd("Manufacturer.txt");
+    if (!fileProd) {
+        cout << "Eroare la deschiderea Manufacturer.txt\n";
+        return 1;
+    }
 
     string line;
     while (getline(fileProd, line)) {
@@ -267,7 +271,6 @@ int Sarcina9(){
         jucariiPerProducator[id] = 0;
     }
     fileProd.close();
-
 
     ifstream fileToys("Toys.txt");
     if (!fileToys) {
@@ -284,14 +287,24 @@ int Sarcina9(){
     }
     fileToys.close();
 
-    cout << "Producatori si numarul de tipuri de jucarii fabricate:\n\n";
+    ofstream output("Total.txt");
+    if (!output) {
+        cerr << "Eroare la crearea Total.txt\n";
+        return 1;
+    }
+
+    output << "Producatori si numarul de tipuri de jucarii fabricate:\n\n";
     for (auto& pair : producatori) {
         int id = pair.first;
         string nume = pair.second;
-        cout << " " << nume << ": " << jucariiPerProducator[id] << " tipuri de jucarii\n";
+        output << " " << nume << ": " << jucariiPerProducator[id] << " tipuri de jucarii\n";
     }
-    cout << endl;
+    output << endl;
+    output.close();
+
+    return 0;
 }
+
 
 void Sarcina10(){
     ifstream Toys("Toys.txt");

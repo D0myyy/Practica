@@ -1,0 +1,32 @@
+Producatori si numarul de tipuri de jucarii fabricate:
+
+ Nefis: 4 tipuri de jucarii
+ Milka: 4 tipuri de jucarii
+ Kinder: 0 tipuri de jucarii
+ Ferrero: 1 tipuri de jucarii
+ Nestle: 0 tipuri de jucarii
+ Lindt: 0 tipuri de jucarii
+ Mars: 1 tipuri de jucarii
+ Snickers: 1 tipuri de jucarii
+ Toffifee: 0 tipuri de jucarii
+ Raffaello: 1 tipuri de jucarii
+ Ritter: 1 tipuri de jucarii
+ Heidi: 1 tipuri de jucarii
+ Magura: 1 tipuri de jucarii
+ Joe: 1 tipuri de jucarii
+ Poiana: 0 tipuri de jucarii
+ Barni: 2 tipuri de jucarii
+ Alfers: 1 tipuri de jucarii
+ Primola: 1 tipuri de jucarii
+ Kandia: 1 tipuri de jucarii
+ Twix: 1 tipuri de jucarii
+ Mentos: 1 tipuri de jucarii
+ Skittles: 0 tipuri de jucarii
+ Bounty: 1 tipuri de jucarii
+ Alpenliebe: 1 tipuri de jucarii
+ ChupaChups: 1 tipuri de jucarii
+ Haribo: 0 tipuri de jucarii
+ Trolli: 0 tipuri de jucarii
+ Goplana: 2 tipuri de jucarii
+ Rosheen: 1 tipuri de jucarii
+
