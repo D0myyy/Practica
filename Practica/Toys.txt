@@ -27,4 +27,4 @@ PapusaBarbie 250 600 fete 29
 Dronee 11 10 fete 30
 Tobita 100 1000 fete 29
 Domino 123 123 fete 20
-Dino 253 235 baieti 25
+Dinoo 120 200 fete 15

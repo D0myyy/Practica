@@ -305,7 +305,6 @@ int Sarcina9(){
     return 0;
 }
 
-
 void Sarcina10(){
     ifstream Toys("Toys.txt");
     string lineToys;
@@ -318,7 +317,9 @@ void Sarcina10(){
         int price, quantity, ID;
         iss >> name >> price >> quantity >> category >> ID;
 
-        NumeleToys.push_back(name);
+        if(category == "copii_mici"){
+            NumeleToys.push_back(name);
+        }
         }
 
         sort(NumeleToys.begin(), NumeleToys.end(), compararePrimaLitera);
